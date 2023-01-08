@@ -33,11 +33,10 @@ const notfound = require('./middleware/notfoundMiddleware')
 
 app.set('trust proxy', 1);
 app.use(rateLimiter({
-    windowMs: 15 *60 *1000,
+    windowMs: 15 * 60 * 1000,
     max: 60,
 }))
 app.use(mongoSanitize())
-app.use(morgan('tiny'))
 app.use(helmet());
 app.use(cors());
 app.use(xss());
@@ -47,18 +46,8 @@ app.use(cookieParser(process.env.JWT_SECRET))
 
 app.use(express.static('./public'));
 
-// app.get('/setcookie',(req,res)=>{
-//     res.cookie('token','appuser')
-//     res.send('setcookies.....')
-// })
-// app.get('/getcookie',(req,res)=>{
-//     console.log(req.cookies);
-// })
-
 //router
-app.get('/', (req, res) => {
-    res.send('Store-API')
-})
+
 app.use('/api/v1/products', productRoute)
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/user', userRoute)
