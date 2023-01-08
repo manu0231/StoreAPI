@@ -1,0 +1,641 @@
+{
+	"info": {
+		"_postman_id": "18aa6f86-f590-48ce-905d-f7e99d1c6040",
+		"name": "STORE_API_01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24452409"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Naruto\",\r\n    \"email\":\"naruto@gmail.com\",\r\n    \"password\":\"senpai\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"akuma@gmail.com\",\r\n    \"password\":\"senpai\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/auth/logout",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n           \r\n            \"name\": \"a first wooden table\",\r\n            \"price\": 23,\r\n            \"featured\": true,\r\n            \"rating\": 4.5,\r\n            \"company\":\"ikea\"           \r\n }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ALL Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "table",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "name,price,rating",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "emptydb",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/63a3434be97c4b6ee26a7202",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products",
+								"63a3434be97c4b6ee26a7202"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n           \"name\": \"a first wooden table\",\r\n            \"price\": 5000,\r\n            \"featured\": true,\r\n            \"rating\": 4.5,\r\n            \"company\": \"caressa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/637dc82456f5dc394b037f8b",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products",
+								"637dc82456f5dc394b037f8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/SOURAV/Desktop/computer-5.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/upload",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products",
+								"upload"
+							],
+							"query": [
+								{
+									"key": "image",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/637f1e07968a4b92456726ca",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products",
+								"637f1e07968a4b92456726ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Products Review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/63a3434be97c4b6ee26a7202/reviews",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"products",
+								"63a3434be97c4b6ee26a7202",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"product\":\"63a3434be97c4b6ee26a7203\",\r\n    \"rating\":\"3\",\r\n    \"title\":\"good\",\r\n    \"comment\":\"very good\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/review",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/review",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SIngle Review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/review/639ebc857e2aed1b86bc4181",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"review",
+								"639ebc857e2aed1b86bc4181"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\":\"2\",\r\n    \"title\":\"Good\",\r\n    \"comment\":\"very Good\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/review/63a32ebf711e42be046a6f96",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"review",
+								"63a32ebf711e42be046a6f96"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/review/63a328b705a31585d43b05f1",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"review",
+								"63a328b705a31585d43b05f1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWt1bWEiLCJ1c2VySUQiOiI2Mzk1ZWU0ZGE3ZjE2NjgwMDUxNmJlMWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzA3NzMwOTYsImV4cCI6MTY3MDg1OTQ5Nn0.-FCCnN35tdGT1YVcD_YXY6xxEVXXd_Ia02WKdVQNmbA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"akuma1@gmail.com\",\r\n    \"password\":\"senpai\"\r\n}\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/63960decf25d610bbd022c82",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"user",
+								"63960decf25d610bbd022c82"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/showme",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"user",
+								"showme"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldpassword\":\"senpai\",\r\n    \"newpassword\":\"akumasenpai\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/updateUserPassword",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"user",
+								"updateUserPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Senpai\",\r\n    \"email\":\"akuma@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/updateuser",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"user",
+								"updateuser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tax\": 499,\r\n    \"shippingFee\": 799,\r\n    \"items\": [\r\n        {\r\n            \"product\": \"63a5bf40c57687c2dc844763\",\r\n            \"amount\": 2\r\n        },\r\n        {\r\n            \"product\": \"63a5bf40c57687c2dc844766\",\r\n            \"amount\": 2\r\n        }\r\n    ] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/order",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/order/63a72e9587306c2602b5d7f6",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"order",
+								"63a72e9587306c2602b5d7f6"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"6\",\r\n    \"product\":\"63a72e9587306c2602b5d7f8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order/63a5bf40c57687c2dc844766",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"order",
+								"63a5bf40c57687c2dc844766"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowAllMyOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/order/ShowAllMyOrders",
+							"host": [
+								"http://localhost:3000"
+							],
+							"path": [
+								"order",
+								"ShowAllMyOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
